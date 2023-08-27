@@ -17,26 +17,27 @@ public class MainActivity extends AppCompatActivity {
 
 
     TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-         textView = findViewById(R.id.textView2); // query
+        textView = findViewById(R.id.textView2); // query
         textView.setText("DET FUNKAR");
 
-        Button button= findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 update("Test");
             }
         });
 
-        ConnectivityManager cm =  (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         NetworkInfo ni = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 
-        textView.setText( String.valueOf( ni.isConnectedOrConnecting() ) );
+        textView.setText(String.valueOf(ni.isConnectedOrConnecting()));
 
         Toast.makeText(this, "HELLO WORLD", Toast.LENGTH_SHORT).show();
         //shift f10 köra run)
@@ -55,9 +56,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    void update(String text){
-        text+="!";
-        text+="!";
+    void update(String text) {
+        text += "!";
         textView.setText(text);
 
     }
